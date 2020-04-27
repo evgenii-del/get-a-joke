@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/chucknorris_logo_coloured_small@2x.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get a joke</title>
+</head>
+<body class="body">
+    <main>
+        <section class="wrapper">
+            <div class="main-menu">
+                <div class="main">
+                    <div class="msi">
+                        <p>msi 2020</p>
+                        <span id="burgern-button" class="btn-menu">
+                            <div class="burger">
+                                <span class="burger_line burger_line_first"></span>
+                                <span class="burger_line burger_line_second"></span>
+                            </div>
+                            <p>Favourite</p>
+                        </span>
+                    </div>
+                    <div class="greeting">
+                        <p>Hey!</p>
+                        <p>Let's try to find a joke for you</p>
+                    </div>
+                    <div class="control">
+                        <div class="control-div">
+                            <input class="control-input" type="radio" name="choice-button" id="rb1" checked>
+                            <label for="rb1">Random</label>
+                        </div>
+                        <div class="control-div">
+                            <input class="control-input" type="radio" name="choice-button" id="rb2">
+                            <label for="rb2">From categories</label>
+                            <div class="categories">
+                                <div class="form_radio_btn">
+                                	<input id="radio-1" type="radio" name="category-button" value="animal" checked>
+                                	<label for="radio-1">Animal</label>
+                                </div>
+                                <div class="form_radio_btn">
+                                	<input id="radio-2" type="radio" name="category-button" value="career">
+                                	<label for="radio-2">Career</label>
+                                </div>
+                                <div class="form_radio_btn">
+                                	<input id="radio-3" type="radio" name="category-button" value="celebrity">
+                                	<label for="radio-3">Celebrity</label>
+                                </div>
+                                <div class="form_radio_btn">
+                                	<input id="radio-4" type="radio" name="category-button" value="dev">
+                                	<label for="radio-4">Dev</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-div">
+                            <input class="control-input" type="radio" name="choice-button" id="rb3">
+                            <label for="rb3">Search</label>
+                            <div class="search">
+                                <input type="search" id="search" placeholder="Free text search...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-get">
+                        <a onclick="addJoke()">Get a joke</a>
+                    </div>
+                    <div class="card" data-id="XNaAxUduSw6zANDaIEab7E">
+                        <div class="card-content">
+                            <span class="heart" data-id="XNaAxUduSw6zANDaIEab7E"></span>
+                            <span class="id">
+                                ID: <a class="identifier" href="">XNaAxUduSw6zANDaIEab7E<img src="images/link.svg"></a>
+                            </span>
+                            <p class="text">No one truly knows who's Chuck Norris' real father. No one is biologically strong enough for this. He must've conceived himself.</p>
+                            <div class="card-footer">
+                                <span>Last update: <span class="date">1923</span> hours ago</span>
+                                <span class="genre">celebrity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aside">
+                <div class="aside-in">
+                    <p class="favourite-text">Favourite</p>
+                    <div class="aside-content">
+                        <!-- <div class="card-favour">
+                            <div class="card-content">
+                                <span class="heart" data-id="XNaAxUduSw6zANDaIEab7A"></span>
+                                <span class="id">
+                                    ID: <a href="#">XNaAxUduSw6zANDaIEab7A <img data-id="${favourite[i]['id']}" src="images/link.svg"></a>
+                                </span>
+                                <p>No one truly knows who's Chuck Norris' real father. No one is biologically strong enough for this. He must've conceived himself.</p>
+                                <div class="card-footer">
+                                    <span>Last update: 1923 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-favour">
+                            <div class="card-content">
+                                <span class="heart">
+                                    <img src="images/heart.svg">
+                                </span>
+                                <span class="id">
+                                    ID: <a href="#">XNaAxUduSw6zANDaIEab7A <img src="images/link.svg"></a>
+                                </span>
+                                <p>Chuck Norris can put a plane in reverse.</p>
+                                <div class="card-footer">
+                                    <span>Last update: 1923 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-favour">
+                            <div class="card-content">
+                                <span class="heart">
+                                    <img data-id="XNaAxUduSw6zANDaIEab7A" src="images/heart.svg">
+                                </span>
+                                <span class="id">
+                                    ID: <a href="#">XNaAxUduSw6zANDaIEab7A <img src="images/link.svg"></a>
+                                </span>
+                                <p>Chuck Norris doesn't bench press weight sets, he bench presses FREIGHT TRAINS!</p>
+                                <div class="card-footer">
+                                    <span>Last update: 1923 hours ago</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/favourite.js"></script>
+</body>
+</html>
