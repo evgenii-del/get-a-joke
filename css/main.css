@@ -406,7 +406,8 @@ input[id^='rb3']:checked ~ .search {
     color: #333333;
     margin: 5px 0 20px 0;
 }
-@media screen and (max-width:836px){
+
+@media screen and (max-width:836px) {
     .main-menu {
         width: 100%;
     }
@@ -466,11 +467,11 @@ input[id^='rb3']:checked ~ .search {
     .heart:hover {
         background: url('../images/Vector.svg');
     }
-    }
     .card .heart_active:hover {
         background: url('../images/heart.svg');
     }
 }
+
 @media screen and (max-width:380px) {
     .main {
         max-width: 340px;
