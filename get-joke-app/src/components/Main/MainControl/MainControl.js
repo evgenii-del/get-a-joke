@@ -9,7 +9,7 @@ function MainControl() {
 
 
             <div className="control__item">
-                <input className="control__type" type="radio" name="choice-button" id="rb1"/>
+                <input className="control__type" type="radio" name="choice-button" id="rb1" defaultChecked/>
                 <label htmlFor="rb1">Random</label>
             </div>
 
@@ -19,7 +19,7 @@ function MainControl() {
                 <label htmlFor="rb2">From categories</label>
                 <div className="categories">
                     <div className="form_radio_btn categories__item">
-                        <input id="radio-1" type="radio" name="category-button" value="animal"/>
+                        <input id="radio-1" type="radio" name="category-button" value="animal" defaultChecked/>
                         <label htmlFor="radio-1">Animal</label>
                     </div>
                     <div className="form_radio_btn categories__item">
@@ -41,7 +41,7 @@ function MainControl() {
             <div className="control__item">
                 <input className="control__type" type="radio" name="choice-button" id="rb3"/>
                 <label htmlFor="rb3">Search</label>
-                <div className="search">
+                <div className="control__search">
                     <input type="search" id="search" placeholder="Free text search..."/>
                 </div>
             </div>
