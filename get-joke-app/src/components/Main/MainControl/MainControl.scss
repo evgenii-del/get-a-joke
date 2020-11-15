@@ -1,11 +1,3 @@
-input[id^='rb2']:checked ~ .categories {
-  display: block;
-}
-
-input[id^='rb3']:checked ~ .control__search {
-  display: block;
-}
-
 .control {
   &__item {
     margin-top: 16px;
@@ -84,11 +76,10 @@ input[id^='rb3']:checked ~ .control__search {
   &__search {
     max-width: 680px;
     margin-top: 20px;
-    display: none;
 
     input {
       padding: 10px;
-      border: 2px solid #131313;
+      border: 1px solid #131313;
       border-radius: 10px;
       height: 42px;
       width: 100%;
@@ -118,7 +109,6 @@ input[id^='rb3']:checked ~ .control__search {
 }
 
 .categories {
-  display: none;
   margin: 23px 0 23px 0;
 
   &__item {

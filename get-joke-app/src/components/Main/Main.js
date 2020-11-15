@@ -9,18 +9,13 @@ import "./Main.scss";
 function Main() {
     return (
         <div className="main">
-
             <MainTitle/>
-
             <div className="greeting">
                 <p>Hey!</p>
                 <p>Let's try to find a joke for you</p>
             </div>
-
             <MainControl/>
-
             <Card/>
-
         </div>
     );
 }

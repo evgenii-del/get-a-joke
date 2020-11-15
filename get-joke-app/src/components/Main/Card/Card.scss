@@ -20,29 +20,31 @@
     left: 40px;
   }
 
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__id {
     white-space: nowrap;
-    margin-top: 10px;
     font-style: normal;
     font-size: 10px;
     line-height: 140%;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding: 5px;
 
-    img {
-      margin-left: 5px;
-    }
   }
 
   &__heart {
-    background: url('./../../../assets/images/heart_disabled.svg');
-    transition: .5s;
-    align-self: flex-end;
     width: 20px;
     height: 17px;
-    display: block;
-    padding: 8px;
+    transition: .5s;
+    background-image: url('./../../../assets/images/heart_disabled.svg');
+
+    &:hover {
+      background-image: url('./../../../assets/images/heart.svg');
+    }
   }
 
   &__text {

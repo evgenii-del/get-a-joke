@@ -6,11 +6,13 @@ import "./Card.scss";
 function Card() {
     return (
         <div className="card">
-            <span className="card__heart"/>
-            <span className="card__id">
-                        ID: <a className="identifier" href="">XNaAxUduSw6zANDaIEab7E</a>
-                        <img src="" alt="heart"/>
-                    </span>
+            <div className="card__top">
+                <span className="card__id">
+                    <a href="">ID: XNaAxUduSw6zANDaIEab7E</a>
+                </span>
+                <span className="card__heart">
+                </span>
+            </div>
             <p className="card__text">
                 No one truly knows who's Chuck Norris' real father. No one is
                 biologically strong
