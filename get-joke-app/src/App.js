@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useReducer} from "react";
+
 import Sidebar from "./components/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
+import {Context} from "./context";
+import reducer from "./reducer";
+import store from "./state";
 
 
-function App() {
+const App = () => {
+    const [state, dispatch] = useReducer(reducer, store);
+
     return (
-        <div className="wrapper">
-            <Main/>
-            <Sidebar/>
-        </div>
+        <Context.Provider value={{state, dispatch}}>
+            <div className="wrapper">
+                <Main/>
+                <Sidebar/>
+            </div>
+        </Context.Provider>
     );
 }
 
