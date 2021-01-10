@@ -12,8 +12,7 @@ const Card = props => {
                 <span className="card__id">
                    ID:  <a href={url}>{id}</a>
                 </span>
-                <span className="card__heart">
-                </span>
+                <span className="card__heart"/>
             </div>
             <p className="card__text">
                 {value}

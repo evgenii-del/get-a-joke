@@ -1,25 +1,27 @@
-import React, {useContext} from "react";
+import React, {useContext, useRef} from "react";
 
-import {Context} from "../../context";
-import MainTitle from "./MainTitle/MainTitle";
 import MainControl from "./MainControl/MainControl";
+import MainTitle from "./MainTitle/MainTitle";
+import {Context} from "../../context";
 import Card from "./Card/Card";
 import "./Main.scss";
 
 
-function Main() {
+const Main = props => {
     const {state} = useContext(Context);
+    const {sidebarRef} = props;
+    const mainRef = useRef();
 
     return (
-        <div className="main">
-            <MainTitle/>
+        <div className="main" ref={mainRef}>
+            <MainTitle mainRef={mainRef} sidebarRef={sidebarRef}/>
             <div className="greeting">
                 <p>Hey!</p>
                 <p>Let's try to find a joke for you</p>
             </div>
             <MainControl/>
             {
-                state.items.map(item => <Card item={item}/>)
+                state.items.map((item, index) => <Card item={item} key={index}/>)
             }
         </div>
     );

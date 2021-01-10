@@ -2,9 +2,11 @@ import React from "react";
 
 import "./Sidebar.scss";
 
-function Sidebar() {
+const Sidebar = props => {
+    const {sidebarRef} = props;
+
     return (
-        <div className="sidebar">
+        <div className="sidebar active" ref={sidebarRef}>
             <div className="sidebar__inner">
                 <h2 className="sidebar__title">Favourite</h2>
                 <div className="sidebar__content">

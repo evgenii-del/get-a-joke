@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useReducer, useRef} from "react";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
@@ -9,12 +9,13 @@ import store from "./state";
 
 const App = () => {
     const [state, dispatch] = useReducer(reducer, store);
+    const sidebarRef = useRef();
 
     return (
         <Context.Provider value={{state, dispatch}}>
             <div className="wrapper">
-                <Main/>
-                <Sidebar/>
+                <Main sidebarRef={sidebarRef}/>
+                <Sidebar sidebarRef={sidebarRef}/>
             </div>
         </Context.Provider>
     );
