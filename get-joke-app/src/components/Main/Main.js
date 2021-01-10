@@ -1,15 +1,14 @@
 import React, {useContext} from "react";
 
+import {Context} from "../../context";
 import MainTitle from "./MainTitle/MainTitle";
 import MainControl from "./MainControl/MainControl";
 import Card from "./Card/Card";
-import {Context} from "../../context";
-
 import "./Main.scss";
 
 
 function Main() {
-    const {state, dispatch} = useContext(Context);
+    const {state} = useContext(Context);
 
     return (
         <div className="main">
@@ -19,8 +18,9 @@ function Main() {
                 <p>Let's try to find a joke for you</p>
             </div>
             <MainControl/>
-            <Card id={state.jokes[0].id} body={state.jokes[0].body} date={state.jokes[0].date}
-                  genre={state.jokes[0].genre}/>
+            {
+                state.items.map(item => <Card item={item}/>)
+            }
         </div>
     );
 }

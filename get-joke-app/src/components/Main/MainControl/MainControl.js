@@ -1,57 +1,80 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
+import axios from "axios";
 
 import "./MainControl.scss";
+import {Context} from "../../../context";
 
 
 function MainControl() {
-    const [categoriesVisibility, setCategoriesVisibility] = useState(false);
-    const [searchVisibility, setSearchVisibility] = useState(false);
+    const {state, dispatch} = useContext(Context);
+    const [search, setSearch] = useState("");
+    const [selectedType, setSelectedType] = useState("random");
+    const [selectedCategory, setSelectedCategory] = useState("animal");
 
-    const choseType = (type) => {
-        if (type === "categories") {
-            setCategoriesVisibility(true);
-            setSearchVisibility(false);
-        } else if (type === "search") {
-            setSearchVisibility(true);
-            setCategoriesVisibility(false);
+    const handleChangeType = type => {
+        setSelectedType(type);
+    }
+
+    const handleChangeSearch = (value) => {
+        setSearch(value);
+    }
+
+    const handleChangeCategory = category => {
+        setSelectedCategory(category);
+    }
+
+    const fetchJoke = () => {
+        let substr;
+        if (selectedType === "categories") {
+            substr = `random?category=${selectedCategory}`;
+        } else if (selectedType === "search") {
+            substr = `search?query=${search}`;
         } else {
-            setCategoriesVisibility(false);
-            setSearchVisibility(false);
+            substr = "random";
         }
+
+        axios.get(`https://api.chucknorris.io/jokes/${substr}`).then(response => {
+            dispatch({
+                type: "ADD_JOKE",
+                item: response.data
+            })
+        });
     }
 
     return (
         <div className="control">
 
             <div className="control__item">
-                <input className="control__type" type="radio" name="choice-button" value="random" onChange={(event) => {
-                    choseType(event.target.value);
-                }} id="rb1" defaultChecked/>
+                <input className="control__type" type="radio" name="choice-button" value="random"
+                       onChange={() => handleChangeType("random")} id="rb1" defaultChecked/>
                 <label htmlFor="rb1">Random</label>
             </div>
 
             <div className="control__item">
                 <input className="control__type" type="radio" name="choice-button" value="categories"
-                       onChange={(event) => {
-                           choseType(event.target.value);
-                       }} id="rb2"/>
+                       onChange={() => handleChangeType("categories")} id="rb2"/>
                 <label htmlFor="rb2">From categories</label>
-                {categoriesVisibility &&
+
+                {selectedType === "categories" &&
                 <div className="categories">
                     <div className="categories__item">
-                        <input id="radio-1" type="radio" name="category-button" value="animal" defaultChecked/>
+                        <input id="radio-1" type="radio" name="category-button" value="animal"
+                               onChange={() => handleChangeCategory("animal")} defaultChecked/>
                         <label htmlFor="radio-1">Animal</label>
                     </div>
                     <div className="categories__item">
-                        <input id="radio-2" type="radio" name="category-button" value="career"/>
+                        <input id="radio-2" type="radio" name="category-button" value="career"
+                               onChange={() => handleChangeCategory("career")}/>
                         <label htmlFor="radio-2">Career</label>
                     </div>
                     <div className="categories__item">
-                        <input id="radio-3" type="radio" name="category-button" value="celebrity"/>
+                        <input id="radio-3" type="radio" name="category-button" value="celebrity"
+                               onChange={() => handleChangeCategory("celebrity")}/>
                         <label htmlFor="radio-3">Celebrity</label>
                     </div>
                     <div className="categories__item">
-                        <input id="radio-4" type="radio" name="category-button" value="dev"/>
+                        <input id="radio-4" type="radio" name="category-button" value="dev"
+                               onChange={() => handleChangeCategory("dev")}/>
                         <label htmlFor="radio-4">Dev</label>
                     </div>
                 </div>}
@@ -59,22 +82,21 @@ function MainControl() {
             </div>
 
             <div className="control__item">
-                <input className="control__type" type="radio" name="choice-button" value="search" onChange={(event) => {
-                    choseType(event.target.value);
-                }} id="rb3"/>
+                <input className="control__type" type="radio" name="choice-button" value="search"
+                       onChange={() => handleChangeType("search")} id="rb3"/>
                 <label htmlFor="rb3">Search</label>
-                {searchVisibility &&
-                <div className="control__search">
-                    <input type="search" id="search" placeholder="Free text search..."/>
-                </div>}
 
+                {selectedType === "search" &&
+                <div className="control__search">
+                    <input type="search" id="search" placeholder="Free text search..." value={search}
+                           onChange={({target}) => handleChangeSearch(target.value)}/>
+                </div>}
 
             </div>
 
             <div className="control__btn">
-                <a>Get a joke</a>
+                <button onClick={fetchJoke}>Get a joke</button>
             </div>
-
 
         </div>
     );

@@ -94,12 +94,12 @@
   &__btn {
     margin: 23px 0 40px 0;
 
-    a {
+    button {
       max-width: 152px;
       cursor: pointer;
-      display: block;
       color: #ffff;
       padding: 10px 40px 10px 40px;
+      border: none;
       border-radius: 10px;
       background: linear-gradient(#8EA7FF, #7291FF);
       font-size: 16px;

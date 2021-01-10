@@ -1,10 +1,13 @@
 let store = {
-    jokes: [
+    items: [
         {
-            id: 'XNaAxUduSw6zANDaIEab7E',
-            body: 'No one truly knows who\'s Chuck Norris\' real father. No one is biologically strong enough for this. He must\'ve conceived himself.',
-            date: '1923',
-            genre: 'celebrity'
+            categories: [],
+            created_at: "2020-01-05 13:42:24.40636",
+            icon_url: "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            id: "hxdgXDCvS2K9EsZCCCUT2g",
+            updated_at: "2020-01-05 13:42:24.40636",
+            url: "https://api.chucknorris.io/jokes/hxdgXDCvS2K9EsZCCCUT2g",
+            value: "When Chuck Norris stares at the sun, the sun blinks."
         }
     ]
 }

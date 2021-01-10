@@ -1,20 +1,21 @@
 const burger = document.getElementById('burgern-button');
 const aside = document.querySelector('.aside');
 const wrapper = document.querySelector('.wrapper');
-(function(){
-burger.addEventListener('click', () => {
-    burger.classList.toggle('burger_active');
-    aside.classList.toggle('active');
-    wrapper.classList.toggle('main-menu-dark');
-});
+(function () {
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('burger_active');
+        aside.classList.toggle('active');
+        wrapper.classList.toggle('main-menu-dark');
+    });
 }());
 
-window.onclick = function(event) {
-   if (event.target == wrapper) {
-       burger.classList.toggle('burger_active');
-       aside.classList.toggle('active');
-       wrapper.classList.toggle('main-menu-dark');
-   };
+window.onclick = function (event) {
+    if (event.target == wrapper) {
+        burger.classList.toggle('burger_active');
+        aside.classList.toggle('active');
+        wrapper.classList.toggle('main-menu-dark');
+    }
+    ;
 };
 
 let choices = document.getElementsByName('choice-button');
@@ -58,25 +59,28 @@ function addJoke() {
     let url = getApiUrl();
 
     fetch(url)
-    .then(data => data.json())
-    .then(data => {
-        if (data.total !== undefined) {
-            let number = getRandomInt(data.total);
-            if (number) {
-                createJokeCard(data.result[number].id, data.result[number].url, data.result[number].value, countDate(data.created_at), data.result[number].categories);
-            };
-        } else {
-            createJokeCard(data.id, data.url, data.value, countDate(data.created_at), data.categories);
-        };
-    });
+        .then(data => data.json())
+        .then(data => {
+            if (data.total !== undefined) {
+                let number = getRandomInt(data.total);
+                if (number) {
+                    createJokeCard(data.result[number].id, data.result[number].url, data.result[number].value, countDate(data.created_at), data.result[number].categories);
+                }
+                ;
+            } else {
+                createJokeCard(data.id, data.url, data.value, countDate(data.created_at), data.categories);
+            }
+            ;
+        });
 };
 
-function createJokeCard(id, url, content, date, category='') {
+function createJokeCard(id, url, content, date, category = '') {
     let newDiv = document.createElement("div");
 
     if (category != '') {
         category = `<span  id="joke_genre" class="genre">${category}</span>`;
-    };
+    }
+    ;
 
     newDiv.innerHTML = `<div class="card" data-id="${id}">
                             <div class="card-content">
