@@ -17,7 +17,7 @@
     background: #fff url('./../../../assets/images/message.svg') no-repeat center;
     border-radius: 50%;
     top: 40px;
-    left: 40px;
+    left: 30px;
   }
 
   &__top {
@@ -94,9 +94,13 @@
 }
 
 @media screen and (max-width: 380px) {
-
   .card {
     padding: 20px 20px 20px 80px;
+
+    &:before {
+      top: 20px;
+      left: 20px;
+    }
 
     &__text {
       font-size: 16px;

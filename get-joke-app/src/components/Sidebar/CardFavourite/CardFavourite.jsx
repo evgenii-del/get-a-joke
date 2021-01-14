@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./Card.scss";
+import "./CardFavourite.scss";
 
 
-const Card = props => {
+const CardFavourite = props => {
     const {id, url, value, updated_at, categories} = props.item;
     const {addJokeToFavourite} = props;
 
@@ -12,22 +12,20 @@ const Card = props => {
     }
 
     return (
-        <div className="card">
+        <div className="card-favour">
             <div className="card__top">
-                <span className="card__id">
-                   ID:  <a href={url}>{id}</a>
-                </span>
+                            <span className="card__id">
+                               ID:  <a href={url}>{id}</a>
+                            </span>
                 <span className="card__heart" onClick={handleAddJokeToFavourite}/>
             </div>
-            <p className="card__text">
-                {value}
-            </p>
+            <p>{value}</p>
             <div className="card__footer">
                 <span>Last update: <span className="date">{updated_at}</span></span>
                 {categories.length ? <span className="card__genre">{categories[0]}</span> : <></>}
             </div>
         </div>
-    );
+    )
 }
 
-export default Card;
+export default CardFavourite;

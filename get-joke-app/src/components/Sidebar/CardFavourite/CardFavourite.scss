@@ -1,0 +1,53 @@
+.card-favour {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13.4px;
+    line-height: 20px;
+    color: #333333;
+    margin: 5px 0 20px 0;
+  }
+
+  .id {
+    white-space: nowrap;
+    margin-top: 10px;
+    font-style: normal;
+    font-size: 10px;
+    line-height: 140%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  .id img, {
+    margin-left: 5px;
+  }
+
+  .heart {
+    transition: .5s;
+    align-self: flex-end;
+    width: 20px;
+    height: 17px;
+  }
+
+  .heart:hover {
+    transition: .5s;
+  }
+
+  .card-footer {
+    font-size: 10px;
+    line-height: 14px;
+    vertical-align: top;
+    color: #ABABAB;
+  }
+}

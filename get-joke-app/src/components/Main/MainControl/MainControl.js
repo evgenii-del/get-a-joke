@@ -1,9 +1,14 @@
 import React, {useContext, useState} from "react";
 import axios from "axios";
 
-import "./MainControl.scss";
 import {Context} from "../../../context";
+import "./MainControl.scss";
 
+
+const getRandomInteger = (min, max) => {
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+}
 
 const MainControl = () => {
     const {dispatch} = useContext(Context);
@@ -23,8 +28,16 @@ const MainControl = () => {
         setSelectedCategory(category);
     }
 
+    const setJoke = joke => {
+        dispatch({
+            type: "ADD_JOKE",
+            item: joke
+        })
+    }
+
     const fetchJoke = () => {
         let substr;
+
         if (selectedType === "categories") {
             substr = `random?category=${selectedCategory}`;
         } else if (selectedType === "search") {
@@ -34,28 +47,27 @@ const MainControl = () => {
         }
 
         axios.get(`https://api.chucknorris.io/jokes/${substr}`).then(response => {
-            dispatch({
-                type: "ADD_JOKE",
-                item: response.data
-            })
+            if (response.data.total) {
+                const index = getRandomInteger(0, response.data.total);
+                setJoke(response.data.result[index]);
+            } else {
+                setJoke(response.data);
+            }
         });
     }
 
     return (
         <div className="control">
-
             <div className="control__item">
                 <input className="control__type" type="radio" name="choice-button" value="random"
                        onChange={() => handleChangeType("random")} id="rb1" checked={selectedType === "random"}/>
                 <label htmlFor="rb1">Random</label>
             </div>
-
             <div className="control__item">
                 <input className="control__type" type="radio" name="choice-button" value="categories"
                        onChange={() => handleChangeType("categories")} id="rb2"
                        checked={selectedType === "categories"}/>
                 <label htmlFor="rb2">From categories</label>
-
                 {selectedType === "categories" &&
                 <div className="categories">
                     <div className="categories__item">
@@ -80,9 +92,7 @@ const MainControl = () => {
                         <label htmlFor="radio-4">Dev</label>
                     </div>
                 </div>}
-
             </div>
-
             <div className="control__item">
                 <input className="control__type" type="radio" name="choice-button" value="search"
                        onChange={() => handleChangeType("search")} id="rb3" checked={selectedType === "search"}/>
@@ -93,13 +103,10 @@ const MainControl = () => {
                     <input type="search" id="search" placeholder="Free text search..." value={search}
                            onChange={({target}) => handleChangeSearch(target.value)}/>
                 </div>}
-
             </div>
-
             <div className="control__btn">
                 <button onClick={fetchJoke}>Get a joke</button>
             </div>
-
         </div>
     );
 }

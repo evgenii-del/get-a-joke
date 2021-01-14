@@ -9,7 +9,8 @@ let store = {
             url: "https://api.chucknorris.io/jokes/hxdgXDCvS2K9EsZCCCUT2g",
             value: "When Chuck Norris stares at the sun, the sun blinks."
         }
-    ]
+    ],
+    favourites: []
 }
 
 export default store;

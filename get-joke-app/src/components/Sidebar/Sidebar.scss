@@ -2,10 +2,6 @@
   width: calc(100% / 3);
   background-color: #F8F8F8;
 
-  .active {
-    transform: translateX(0);
-  }
-
   &__inner {
     max-width: 400px;
     margin: 0 auto;
@@ -30,6 +26,10 @@
     z-index: 3;
     transition: 1s;
     transform: translateX(100%);
+
+    &_active {
+      transform: translateX(0);
+    }
 
     &__inner {
       max-width: 400px;

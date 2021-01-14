@@ -1,5 +1,6 @@
 .main {
-  max-width: 680px;
+  max-width: calc(100% / 3 * 2);
+  width: 100%;
   margin: 0 auto;
   padding: 40px 10px 140px 10px;
 
@@ -29,7 +30,7 @@
     max-width: 754px;
   }
 
-  .main-menu-dark:after {
+  .main-dark:after {
     content: '';
     height: 100%;
     position: absolute;
