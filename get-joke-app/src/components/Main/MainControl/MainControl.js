@@ -29,6 +29,7 @@ const MainControl = () => {
     }
 
     const setJoke = joke => {
+        setSearch("");
         dispatch({
             type: "ADD_JOKE",
             item: joke

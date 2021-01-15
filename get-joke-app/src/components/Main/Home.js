@@ -19,6 +19,10 @@ const Home = props => {
         sidebarRef.current.className.includes("sidebar_active") ? sidebarRef.current.className = "sidebar" : sidebarRef.current.className = "sidebar sidebar_active";
     }
 
+    const checkIsFavourite = jokeId => {
+        return !!state.favourites.filter(item => item.id === jokeId).length;
+    }
+
     return (
         <div className="main" ref={mainRef}>
             <MainTitle burgerRef={burgerRef} handleBurger={handleBurger}/>
@@ -28,8 +32,11 @@ const Home = props => {
             </div>
             <MainControl/>
             {
-                state.items.map((item, index) => <Card item={item} key={index}
-                                                       addJokeToFavourite={id => onAddJokeToFavourite(id)}/>)
+                state.items.map((item, index) => {
+                    const isFavourite = checkIsFavourite(item.id);
+                    return <Card item={item} key={index} isFavourite={isFavourite}
+                                 addJokeToFavourite={id => onAddJokeToFavourite(id)}/>
+                })
             }
         </div>
     );

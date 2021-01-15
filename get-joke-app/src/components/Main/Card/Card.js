@@ -5,7 +5,7 @@ import "./Card.scss";
 
 const Card = props => {
     const {id, url, value, updated_at, categories} = props.item;
-    const {addJokeToFavourite} = props;
+    const {addJokeToFavourite, isFavourite} = props;
 
     const handleAddJokeToFavourite = () => {
         addJokeToFavourite(id);
@@ -17,7 +17,8 @@ const Card = props => {
                 <span className="card__id">
                    ID:  <a href={url}>{id}</a>
                 </span>
-                <span className="card__heart" onClick={handleAddJokeToFavourite}/>
+                <span className={isFavourite ? "card__heart_active" : "card__heart"}
+                      onClick={handleAddJokeToFavourite}/>
             </div>
             <p className="card__text">
                 {value}

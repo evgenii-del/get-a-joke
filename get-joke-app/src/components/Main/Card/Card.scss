@@ -33,17 +33,28 @@
     line-height: 140%;
     text-overflow: ellipsis;
     overflow: hidden;
-
   }
 
-  &__heart {
+  &__heart,
+  &__heart_active {
     width: 20px;
     height: 17px;
     transition: .5s;
+  }
+
+  &__heart {
     background-image: url('./../../../assets/images/heart_disabled.svg');
 
     &:hover {
       background-image: url('./../../../assets/images/heart.svg');
+    }
+  }
+
+  &__heart_active {
+    background-image: url('./../../../assets/images/heart.svg');
+
+    &:hover {
+      background-image: url('./../../../assets/images/heart_disabled.svg');
     }
   }
 
