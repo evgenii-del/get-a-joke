@@ -16,6 +16,8 @@ const reducer = (state, action) => {
                     [...state.items.filter(item => item.id === action.payload && !isContain), ...state.favourites] : state.items.filter(item => item.id === action.payload);
             }
 
+            localStorage.setItem('favourites', JSON.stringify(newFavourites));
+
             return {
                 ...state,
                 favourites: newFavourites

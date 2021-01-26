@@ -32,11 +32,11 @@ const Home = props => {
             </div>
             <MainControl/>
             {
-                state.items.map((item, index) => {
+                state.items.length ? (state.items.map((item, index) => {
                     const isFavourite = checkIsFavourite(item.id);
                     return <Card item={item} key={index} isFavourite={isFavourite}
                                  addJokeToFavourite={id => onAddJokeToFavourite(id)}/>
-                })
+                })) : <h2 className="not-found">Jokes not found</h2>
             }
         </div>
     );
