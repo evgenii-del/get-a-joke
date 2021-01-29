@@ -48,13 +48,17 @@ const MainControl = () => {
         }
 
         axios.get(`https://api.chucknorris.io/jokes/${substr}`).then(response => {
-            if (response.data.total) {
-                const index = getRandomInteger(0, response.data.total);
-                setJoke(response.data.result[index]);
+            if (response.data.hasOwnProperty("total")) {
+                if (response.data.total >= 1) {
+                    const index = getRandomInteger(0, response.data.total);
+                    setJoke(response.data.result[index]);
+                } else {
+                    alert("Jokes not found");
+                }
             } else {
                 setJoke(response.data);
             }
-        });
+        }).catch(err => console.log());
     }
 
     return (

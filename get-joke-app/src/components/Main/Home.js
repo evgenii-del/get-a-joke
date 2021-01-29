@@ -9,13 +9,12 @@ import "./Home.scss";
 
 const Home = props => {
     const {state} = useContext(Context);
-    const {sidebarRef, onAddJokeToFavourite} = props;
+    const {sidebarRef, wrapperRef, onAddJokeToFavourite} = props;
     const burgerRef = useRef();
-    const mainRef = useRef();
 
     const handleBurger = () => {
         burgerRef.current.className.includes("burger_active") ? burgerRef.current.className = "burger" : burgerRef.current.className = "burger burger_active";
-        mainRef.current.className.includes("main-dark") ? mainRef.current.className = "main" : mainRef.current.className = "main main-dark";
+        wrapperRef.current.className.includes("wrapper-dark") ? wrapperRef.current.className = "wrapper" : wrapperRef.current.className = "wrapper wrapper-dark";
         sidebarRef.current.className.includes("sidebar_active") ? sidebarRef.current.className = "sidebar" : sidebarRef.current.className = "sidebar sidebar_active";
     }
 
@@ -24,7 +23,7 @@ const Home = props => {
     }
 
     return (
-        <div className="main" ref={mainRef}>
+        <div className="main">
             <MainTitle burgerRef={burgerRef} handleBurger={handleBurger}/>
             <div className="greeting">
                 <p>Hey!</p>

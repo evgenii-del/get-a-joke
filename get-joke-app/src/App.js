@@ -10,6 +10,7 @@ import store from "./state";
 const App = () => {
     const [state, dispatch] = useReducer(reducer, store);
     const sidebarRef = useRef();
+    const wrapperRef = useRef();
 
     const onAddJokeToFavourite = useCallback(jokeId => {
         dispatch({
@@ -20,8 +21,8 @@ const App = () => {
 
     return (
         <Context.Provider value={{state, dispatch}}>
-            <div className="wrapper">
-                <Home sidebarRef={sidebarRef} onAddJokeToFavourite={onAddJokeToFavourite}/>
+            <div className="wrapper" ref={wrapperRef}>
+                <Home sidebarRef={sidebarRef} wrapperRef={wrapperRef} onAddJokeToFavourite={onAddJokeToFavourite}/>
                 <Sidebar sidebarRef={sidebarRef} onAddJokeToFavourite={onAddJokeToFavourite}/>
             </div>
         </Context.Provider>
