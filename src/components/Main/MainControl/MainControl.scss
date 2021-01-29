@@ -1,0 +1,147 @@
+.control {
+  -webkit-user-select: none;
+
+  &__item {
+    margin-top: 16px;
+
+    label {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 26px;
+      color: #333333;
+    }
+  }
+
+  &__type {
+    &:checked,
+    &:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    &:checked + label,
+    &:not(:checked) + label {
+      display: inline-block;
+      position: relative;
+      padding-left: 28px;
+      line-height: 20px;
+      cursor: pointer;
+    }
+
+    &:checked + label:before,
+    &:not(:checked) + label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #dddddd;
+      background-color: #ffffff;
+    }
+
+    &:checked + label:before,
+    &:not(:checked) + label:before {
+      border-radius: 100%;
+    }
+
+    &:checked + label:after,
+    &:not(:checked) + label:after {
+      content: "";
+      position: absolute;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    &:checked + label:after,
+    &:not(:checked) + label:after {
+      left: 5px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: #131313;
+    }
+
+    &:not(:checked) + label:after {
+      opacity: 0;
+    }
+
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+
+  &__search {
+    max-width: 680px;
+    margin-top: 20px;
+
+    input {
+      padding: 10px;
+      border: 1px solid #131313;
+      border-radius: 10px;
+      height: 42px;
+      width: 100%;
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__btn {
+    margin: 23px 0 40px 0;
+
+    button {
+      max-width: 152px;
+      cursor: pointer;
+      color: #ffff;
+      padding: 10px 40px 10px 40px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(#8EA7FF, #7291FF);
+      font-size: 16px;
+      vertical-align: top;
+    }
+  }
+}
+
+.categories {
+  margin: 23px 0 23px 0;
+
+  &__item {
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+
+    label {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 133%;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ABABAB;
+      border: 1px solid #F8F8F8;
+      border-radius: 6px;
+      padding: 5px 14px;
+
+      &:hover {
+        color: #666;
+      }
+    }
+
+    input {
+      display: none;
+
+      &:checked + label {
+        background: #F8F8F8;
+        color: #131313;
+      }
+    }
+  }
+}
