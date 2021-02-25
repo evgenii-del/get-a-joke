@@ -1,6 +1,11 @@
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_JOKE":
+            console.log({
+                ...state,
+                items: [action.item, ...state.items]
+            });
+
             return {
                 ...state,
                 items: [action.item, ...state.items]

@@ -50,7 +50,7 @@ const MainControl = () => {
         axios.get(`https://api.chucknorris.io/jokes/${substr}`).then(response => {
             if (response.data.hasOwnProperty("total")) {
                 if (response.data.total >= 1) {
-                    const index = getRandomInteger(0, response.data.total);
+                    const index = getRandomInteger(0, response.data.total - 1);
                     setJoke(response.data.result[index]);
                 } else {
                     alert("Jokes not found");
@@ -109,9 +109,7 @@ const MainControl = () => {
                            onChange={({target}) => handleChangeSearch(target.value)}/>
                 </div>}
             </div>
-            <div className="control__btn">
-                <button onClick={fetchJoke}>Get a joke</button>
-            </div>
+            <button className="control__btn" onClick={fetchJoke}>Get a joke</button>
         </div>
     );
 }

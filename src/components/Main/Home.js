@@ -35,7 +35,7 @@ const Home = props => {
                     const isFavourite = checkIsFavourite(item.id);
                     return <Card item={item} key={index} isFavourite={isFavourite}
                                  addJokeToFavourite={id => onAddJokeToFavourite(id)}/>
-                })) : <h2 className="not-found">Jokes not found</h2>
+                })) : <p className="not-found">Jokes not found</p>
             }
         </div>
     );
